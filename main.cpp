@@ -1,7 +1,8 @@
 #include <iostream>
 #include <cstdlib> //Эта библиотека отвечает за работу рандома.
 #include <vector>
-#include <string> 
+#include <string>
+#include <map> 
 #include<time.h> /*данная библиотка помогает рандому 
 синхронизироваться по системному времени*/
 
@@ -14,6 +15,13 @@ namespace liter
     string lose = "You LOSE";
     string win = "You WIN!";
     string new_or_stop = "Enter 'y' for new number or 'n' for stop game!";
+    string comp_number = "Computer number is";
+    string comp_summ_numbers = "Computer summ numbers is";
+    string comp_lose = "Computer LOSE";
+    string comp_win = "Computer WIN!";
+    string second_player_win = "2 player WIN!";
+    string second_player_lose = "2 player LOSE";
+    string check_player = "Enter 'c' if computer or 'p' second player!";
 } //Литеры вывода сообщений
 
 void gen_chislo(vector<int> & summ_game, int & sum_vec);
@@ -23,6 +31,7 @@ void print(string stroka, int num);
 void print(string stroka);
 vector<int> summ_game;// хранит числа выпавшие игроку
 int sum_vec = 0; //хранит сумму всех чисел из вектора
+
 
 int main()
 {
@@ -40,7 +49,7 @@ void gen_chislo(vector<int> & summ_game, int & sum_vec)
     char vybor; //переменная выбора игрока.
     while(vybor != 'n')
     {
-        rand_chislo = rand()%10;
+        rand_chislo = 2 + rand()%13;
         summ_game.push_back(rand_chislo);
         print(liter::y_number_is, rand_chislo);// вывод фразы "Your number is" и числа
         summ_chislo(summ_game, sum_vec);
@@ -52,8 +61,14 @@ void gen_chislo(vector<int> & summ_game, int & sum_vec)
         }
         else
         {
-            print(liter::new_or_stop);//вывод фразы "Enter 'y' for new number or 'n' for stop game!"
-            cin >> vybor;
+            do
+            {
+                print(liter::new_or_stop);//вывод фразы "Enter 'y' for new number or 'n' for stop game!"
+                cin >> vybor;
+
+            }while(vybor != 'y' && vybor != 'n');
+            
+           
         }
     }
 
