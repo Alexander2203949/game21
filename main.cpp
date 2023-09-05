@@ -7,7 +7,6 @@
 синхронизироваться по системному времени*/
 #include <windows.h>
 #include <list>
-
 using namespace std;
 
 namespace liter
@@ -58,7 +57,6 @@ void gen_chislo(vector<int> & summ_game, int & sum_vec)
         summ_game.push_back(rand_chislo);
         print(liter::y_number_is, rand_chislo);// вывод фразы "Your number is" и числа
         summ_chislo(summ_game, sum_vec);
-        
         print(liter::summ_numbers, sum_vec); //вывод фразы "Your summ numbers is" и общей суммы
         //блок if отвечает за проверку суммы
         if (check_num(sum_vec))
@@ -72,7 +70,10 @@ void gen_chislo(vector<int> & summ_game, int & sum_vec)
                 print(liter::new_or_stop);//вывод фразы "Enter 'y' for new number or 'n' for stop game!"
                 cin >> vybor;
 
-            }while(vybor != 'y' && vybor != 'n');      
+            }while(vybor != 'y' && vybor != 'n');
+            
+           
+
         }
     }   
 }
@@ -91,9 +92,6 @@ void gen_chislo_comp(vector<int> & summ_game_comp, int & sum_vec_comp)
         //print(liter::comp_summ_numbers, sum_vec_comp); //вывод фразы "Your summ numbers is" и общей суммы
     }
 }
-
-
-
 
 //эта функция суммирует числа в векторе
 void summ_chislo(vector<int> & summ_game, int & sum_vec)
@@ -134,4 +132,14 @@ bool check_num(int & sum_vec)
     {
         return false;
     }
+
 }
+
+void summ_comp_num(vector<int> & summ_comp, int & sum_vec_comp)
+{
+    sum_vec_comp = 0;
+    for(int number : summ_comp)
+    {
+        sum_vec_comp += number;
+    }
+}//Эта функция суммирует числа компьютера в векторе.
