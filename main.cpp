@@ -5,6 +5,7 @@
 #include <map> 
 #include<time.h> /*данная библиотка помогает рандому 
 синхронизироваться по системному времени*/
+#include <windows.h>
 
 using namespace std;
 
@@ -31,12 +32,16 @@ void print(string stroka, int num);
 void print(string stroka);
 vector<int> summ_game;// хранит числа выпавшие игроку
 int sum_vec = 0; //хранит сумму всех чисел из вектора
+void gen_chislo_comp(vector<int> & summ_game_comp,int & summ_vec_comp);
+vector<int> summ_game_comp;
+int summ_vec_comp = 0;
 
 
 int main()
 {
     srand((unsigned) time(NULL)); // помогает рандому получать числа.
-    gen_chislo(summ_game, sum_vec);
+    gen_chislo(summ_game, sum_vec);s
+
     
 
     return 0;
@@ -113,4 +118,19 @@ bool check_num(int & sum_vec)
     {
         return false;
     }
+}
+void gen_chislo_comp(vector<int> & summ_game_comp, int & sum_vec_comp)
+{
+    int rand_chislo_comp = 0; // получает рандомное компьютер
+    for(int h = 0; h < 5; h++)
+    {
+        rand_chislo_comp = 2 + rand()%13;
+        summ_game_comp.push_back(rand_chislo_comp);
+        print(liter::comp_number, rand_chislo_comp);// вывод фразы "Your number is" и числа
+        
+    }
+        
+    
+
+    
 }
