@@ -5,6 +5,7 @@
 #include <list>
 #include <time.h> //Данная библиотека помогает рандому синхронизироваться по системе arvei
 #include <map>
+#include <windows.h>
 
 using namespace std;
 
