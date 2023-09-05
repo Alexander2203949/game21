@@ -32,7 +32,7 @@ void print(string stroka);
 vector<int> summ_game;// хранит числа выпавшие игроку
 int sum_vec = 0; //хранит сумму всех чисел из вектора
 vector<int> summ_comp;
-int sum_vec = 0;
+int sum_vec_comp = 0;
 
 int main()
 {
