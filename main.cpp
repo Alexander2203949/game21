@@ -2,7 +2,8 @@
 #include <cstdlib> //Эта библиотека отвечает за работу рандома.
 #include <vector>
 #include <string>
-#include <map> 
+#include <map>
+#include <windows.h>
 #include<time.h> /*данная библиотка помогает рандому 
 синхронизироваться по системному времени*/
 
@@ -29,8 +30,11 @@ void summ_chislo(vector<int> & summ_game, int & sum_vec);
 bool check_num(int & sum_vec);
 void print(string stroka, int num);
 void print(string stroka);
+void summ_chislo_comp(vector<int> & summ_game, int & sum_vec);
 vector<int> summ_game;// хранит числа выпавшие игроку
 int sum_vec = 0; //хранит сумму всех чисел из вектора
+vector<int> summ_comp;
+int sum_vec_comp = 0;
 
 
 int main()
@@ -38,6 +42,8 @@ int main()
     srand((unsigned) time(NULL)); // помогает рандому получать числа.
     gen_chislo(summ_game, sum_vec);
     
+
+
 
     return 0;
 
@@ -112,5 +118,14 @@ bool check_num(int & sum_vec)
     else
     {
         return false;
+    }
+}
+
+void summ_chislo_comp(vector<int> & summ_game_comp,int & sum_vec)
+{
+    sum_vec_comp = 0;
+    for(auto var : summ_comp)
+    {
+        sum_vec_comp += var;
     }
 }
